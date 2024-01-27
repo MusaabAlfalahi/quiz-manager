@@ -3,15 +3,14 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { CreateQuizDto } from "../dtos/createQuiz.dto";
 import { Quiz } from "../entities/quiz.entity";
 import { Repository } from "typeorm";
+import { Question } from "../entities/question.entity";
 
 @Injectable()
 export class QuizService {
-  constructor(
-    @InjectRepository(Quiz) private quizRepository: Repository<Quiz>,
-  ) {}
+  constructor(@InjectRepository(Quiz) private quizRepository: Repository<Quiz>) {}
 
   async getAllQuiz(): Promise<Quiz[]> {
-    return await this.quizRepository.find();
+    return await this.quizRepository.createQueryBuilder("q").leftJoinAndSelect("q.questions", "qt").getMany();
   }
 
   async getQuizById(id: number): Promise<Quiz> {

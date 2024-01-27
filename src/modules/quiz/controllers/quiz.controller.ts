@@ -1,13 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  ParseIntPipe,
-  Post,
-  UsePipes,
-  ValidationPipe,
-} from "@nestjs/common";
+import { Body, Controller, Get, Param, ParseIntPipe, Post, UsePipes, ValidationPipe } from "@nestjs/common";
 import { QuizService } from "../services/quiz.service";
 import { CreateQuizDto } from "../dtos/createQuiz.dto";
 import { Quiz } from "../entities/quiz.entity";

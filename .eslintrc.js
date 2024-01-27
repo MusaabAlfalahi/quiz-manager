@@ -29,7 +29,7 @@ module.exports = {
       {
         "endOfLine": 'auto',
         // "tabsize": 2,
-        // "printWidth": 120,
+        "printWidth": 120,
         // 'editor.codeActionsOnSave': { 'source.fixAll': true },
         // 'editor.formatOnSave': false,
       },
